@@ -124,7 +124,7 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 		$this->insert('ophnueducation_caregivers_caregivers_present',array('name'=>'No','display_order'=>2));
 		$this->insert('ophnueducation_caregivers_caregivers_present',array('name'=>'N/A','display_order'=>3));
 
-		$this->createTable('ophnueducation_caregivers_relationship', array(
+		$this->createTable('ophnueducation_caregivers_relationship_1', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
 				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
@@ -133,16 +133,16 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'created_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'PRIMARY KEY (`id`)',
-				'KEY `ophnueducation_caregivers_relationship_lmui_fk` (`last_modified_user_id`)',
-				'KEY `ophnueducation_caregivers_relationship_cui_fk` (`created_user_id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
+				'KEY `ophnueducation_caregivers_relationship_1_lmui_fk` (`last_modified_user_id`)',
+				'KEY `ophnueducation_caregivers_relationship_1_cui_fk` (`created_user_id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
-		$this->insert('ophnueducation_caregivers_relationship',array('name'=>'Mother','display_order'=>1));
-		$this->insert('ophnueducation_caregivers_relationship',array('name'=>'Father','display_order'=>2));
+		$this->insert('ophnueducation_caregivers_relationship_1',array('name'=>'Mother','display_order'=>1));
+		$this->insert('ophnueducation_caregivers_relationship_1',array('name'=>'Father','display_order'=>2));
 
-		$this->createTable('ophnueducation_caregivers_relationship', array(
+		$this->createTable('ophnueducation_caregivers_relationship_2', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
 				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
@@ -151,14 +151,14 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'created_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'PRIMARY KEY (`id`)',
-				'KEY `ophnueducation_caregivers_relationship_lmui_fk` (`last_modified_user_id`)',
-				'KEY `ophnueducation_caregivers_relationship_cui_fk` (`created_user_id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
+				'KEY `ophnueducation_caregivers_relationship_2_lmui_fk` (`last_modified_user_id`)',
+				'KEY `ophnueducation_caregivers_relationship_2_cui_fk` (`created_user_id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
-		$this->insert('ophnueducation_caregivers_relationship',array('name'=>'Mother','display_order'=>1));
-		$this->insert('ophnueducation_caregivers_relationship',array('name'=>'Father','display_order'=>2));
+		$this->insert('ophnueducation_caregivers_relationship_2',array('name'=>'Mother','display_order'=>1));
+		$this->insert('ophnueducation_caregivers_relationship_2',array('name'=>'Father','display_order'=>2));
 
 
 
@@ -167,13 +167,13 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 				'event_id' => 'int(10) unsigned NOT NULL',
 				'caregivers_present_id' => 'int(10) unsigned NOT NULL',
 
-				'name' => 'varchar(255) COLLATE utf8_bin DEFAULT \'\'',
+				'relationship_1_name' => 'varchar(255) COLLATE utf8_bin DEFAULT \'\'',
 
-				'relationship_id' => 'int(10) unsigned NOT NULL',
+				'relationship_1_id' => 'int(10) unsigned NOT NULL',
 
-				'name2' => 'varchar(255) COLLATE utf8_bin DEFAULT \'\'',
+				'relationship_2_name' => 'varchar(255) COLLATE utf8_bin DEFAULT \'\'',
 
-				'relationship_id' => 'int(10) unsigned NOT NULL',
+				'relationship_2_id' => 'int(10) unsigned NOT NULL',
 
 				'consent_signed' => 'tinyint(1) unsigned NOT NULL',
 
@@ -186,14 +186,14 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 				'KEY `et_ophnueducation_caregivers_cui_fk` (`created_user_id`)',
 				'KEY `et_ophnueducation_caregivers_ev_fk` (`event_id`)',
 				'KEY `ophnueducation_caregivers_caregivers_present_fk` (`caregivers_present_id`)',
-				'KEY `ophnueducation_caregivers_relationship_fk` (`relationship_id`)',
-				'KEY `ophnueducation_caregivers_relationship_fk` (`relationship_id`)',
+				'KEY `ophnueducation_caregivers_relationship_1_fk` (`relationship_1_id`)',
+				'KEY `ophnueducation_caregivers_relationship_2_fk` (`relationship_2_id`)',
 				'CONSTRAINT `et_ophnueducation_caregivers_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophnueducation_caregivers_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophnueducation_caregivers_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
 				'CONSTRAINT `ophnueducation_caregivers_caregivers_present_fk` FOREIGN KEY (`caregivers_present_id`) REFERENCES `ophnueducation_caregivers_caregivers_present` (`id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_fk` FOREIGN KEY (`relationship_id`) REFERENCES `ophnueducation_caregivers_relationship` (`id`)',
-				'CONSTRAINT `ophnueducation_caregivers_relationship_fk` FOREIGN KEY (`relationship_id`) REFERENCES `ophnueducation_caregivers_relationship` (`id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_1_fk` FOREIGN KEY (`relationship_1_id`) REFERENCES `ophnueducation_caregivers_relationship_1` (`id`)',
+				'CONSTRAINT `ophnueducation_caregivers_relationship_2_fk` FOREIGN KEY (`relationship_2_id`) REFERENCES `ophnueducation_caregivers_relationship_2` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
 
@@ -265,8 +265,8 @@ class m140403_102643_event_type_OphNuEducation extends CDbMigration
 
 
 		$this->dropTable('ophnueducation_caregivers_caregivers_present');
-		$this->dropTable('ophnueducation_caregivers_relationship');
-		$this->dropTable('ophnueducation_caregivers_relationship');
+		$this->dropTable('ophnueducation_caregivers_relationship_1');
+		$this->dropTable('ophnueducation_caregivers_relationship_2');
 
 		$this->dropTable('et_ophnueducation_checklist');
 

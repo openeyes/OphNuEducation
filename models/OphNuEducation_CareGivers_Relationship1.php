@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * OpenEyes
  *
  * (C) Moorfields Eye Hospital NHS Foundation Trust, 2008-2011
@@ -18,17 +17,11 @@
  */
 
 /**
- * This is the model class for table "et_ophnueducation_caregivers".
+ * This is the model class for table "ophnueducation_caregivers_relationship_1".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property integer $event_id
- * @property integer $caregivers_present_id
- * @property string $relationship_1_name
- * @property integer $relationship_1_id
- * @property string $relationship_2_name
- * @property integer $relationship_2_id
- * @property integer $consent_signed
+ * @property string $name
  *
  * The followings are the available model relations:
  *
@@ -37,15 +30,10 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property OphNuEducation_CareGivers_CaregiversPresent $caregivers_present
- * @property OphNuEducation_CareGivers_Relationship1 $relationship_1
- * @property OphNuEducation_CareGivers_Relationship2 $relationship_2
  */
 
-class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
+class OphNuEducation_CareGivers_Relationship1 extends BaseActiveRecord
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -60,7 +48,7 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 	 */
 	public function tableName()
 	{
-		return 'et_ophnueducation_caregivers';
+		return 'ophnueducation_caregivers_relationship_1';
 	}
 
 	/**
@@ -69,9 +57,9 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'safe'),
-			array('caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'required'),
-			array('id, event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'safe', 'on' => 'search'),
+			array('name', 'safe'),
+			array('name', 'required'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -86,9 +74,6 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'caregivers_present' => array(self::BELONGS_TO, 'OphNuEducation_CareGivers_CaregiversPresent', 'caregivers_present_id'),
-			'relationship_1' => array(self::BELONGS_TO, 'OphNuEducation_CareGivers_Relationship1', 'relationship_1_id'),
-			'relationship_2' => array(self::BELONGS_TO, 'OphNuEducation_CareGivers_Relationship2', 'relationship_2_id'),
 		);
 	}
 
@@ -99,13 +84,7 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 	{
 		return array(
 			'id' => 'ID',
-			'event_id' => 'Event',
-			'caregivers_present_id' => 'Caregivers Present',
-			'relationship_1_name' => 'Name',
-			'relationship_1_id' => 'Relationship',
-			'relationship_2_name' => 'Name',
-			'relationship_2_id' => 'Relationship',
-			'consent_signed' => 'Consent Signed',
+			'name' => 'Name',
 		);
 	}
 
@@ -118,25 +97,11 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('caregivers_present_id', $this->caregivers_present_id);
-		$criteria->compare('relationship_1_name', $this->relationship_1_name);
-		$criteria->compare('relationship_1_id', $this->relationship_1_id);
-		$criteria->compare('relationship_2_name', $this->relationship_2_name);
-		$criteria->compare('relationship_2_id', $this->relationship_2_id);
-		$criteria->compare('consent_signed', $this->consent_signed);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
 	}
 }
 ?>

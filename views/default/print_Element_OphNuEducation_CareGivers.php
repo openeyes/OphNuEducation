@@ -26,20 +26,20 @@
 			<td><span class="big"><?php echo $element->caregivers_present ? $element->caregivers_present->name : 'None'?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('name'))?></td>
-			<td><span class="big"><?php echo CHtml::encode($element->name)?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_1_name'))?></td>
+			<td><span class="big"><?php echo CHtml::encode($element->relationship_1_name)?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_id'))?></td>
-			<td><span class="big"><?php echo $element->relationship ? $element->relationship->name : 'None'?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_1_id'))?></td>
+			<td><span class="big"><?php echo $element->relationship_1 ? $element->relationship_1->name : 'None'?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('name2'))?></td>
-			<td><span class="big"><?php echo CHtml::encode($element->name2)?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_name'))?></td>
+			<td><span class="big"><?php echo CHtml::encode($element->relationship_2_name)?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_id'))?></td>
-			<td><span class="big"><?php echo $element->relationship ? $element->relationship->name : 'None'?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_id'))?></td>
+			<td><span class="big"><?php echo $element->relationship_2 ? $element->relationship_2->name : 'None'?></span></td>
 		</tr>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('consent_signed'))?></td>

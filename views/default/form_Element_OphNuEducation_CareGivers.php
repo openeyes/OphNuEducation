@@ -29,10 +29,10 @@
 
 		<div class="element-fields">
 			<?php echo $form->radioButtons($element, 'caregivers_present_id', 'ophnueducation_caregivers_caregivers_present')?>
-	<?php echo $form->textField($element, 'name', array('size' => '10'))?>
-	<?php echo $form->dropDownList($element, 'relationship_id', CHtml::listData(OphNuEducation_CareGivers_Relationship::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
-	<?php echo $form->textField($element, 'name2', array('size' => '10'))?>
-	<?php echo $form->dropDownList($element, 'relationship_id', CHtml::listData(OphNuEducation_CareGivers_Relationship::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->textField($element, 'relationship_1_name', array('size' => '10'))?>
+	<?php echo $form->dropDownList($element, 'relationship_1_id', CHtml::listData(OphNuEducation_CareGivers_Relationship1::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->textField($element, 'relationship_2_name', array('size' => '10'))?>
+	<?php echo $form->dropDownList($element, 'relationship_2_id', CHtml::listData(OphNuEducation_CareGivers_Relationship2::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->checkBox($element, 'consent_signed')?>
 	</div>
 	

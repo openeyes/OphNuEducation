@@ -29,20 +29,20 @@
 			<div class="large-10 column end"><div class="data-value"><?php echo $element->caregivers_present ? $element->caregivers_present->name : 'None'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('name'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo CHtml::encode($element->name)?></div></div>
+			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_1_name'))?></div></div>
+			<div class="large-10 column end"><div class="data-value"><?php echo CHtml::encode($element->relationship_1_name)?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_id'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->relationship ? $element->relationship->name : 'None'?></div></div>
+			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_1_id'))?></div></div>
+			<div class="large-10 column end"><div class="data-value"><?php echo $element->relationship_1 ? $element->relationship_1->name : 'None'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('name2'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo CHtml::encode($element->name2)?></div></div>
+			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_name'))?></div></div>
+			<div class="large-10 column end"><div class="data-value"><?php echo CHtml::encode($element->relationship_2_name)?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_id'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->relationship ? $element->relationship->name : 'None'?></div></div>
+			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_id'))?></div></div>
+			<div class="large-10 column end"><div class="data-value"><?php echo $element->relationship_2 ? $element->relationship_2->name : 'None'?></div></div>
 		</div>
 		<div class="row data-row">
 			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('consent_signed'))?></div></div>
