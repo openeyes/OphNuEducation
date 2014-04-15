@@ -23,22 +23,26 @@
 		<h3 class="element-title"><?php echo $element->elementType->name?></h3>
 	</header>
 
-		<div class="element-data">
-				<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgical_examination'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->surgical_examination ? 'Yes' : 'No'?></div></div>
+	<div class="element-data">
+		<div class="row data-row">
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('consent_signed'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->consent_signed ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anesthesia_assessment'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->anesthesia_assessment ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgical_examination'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->surgical_examination ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('biometry'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->biometry ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anesthesia_assessment'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->anesthesia_assessment ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_rights'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->patient_rights ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('biometry'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->biometry ? 'Yes' : 'No'?></div></div>
 		</div>
-			</div>
+		<div class="row data-row">
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_rights'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_rights ? 'Yes' : 'No'?></div></div>
+		</div>
+	</div>
 </section>

@@ -27,6 +27,7 @@
  * @property integer $anesthesia_assessment
  * @property integer $biometry
  * @property integer $patient_rights
+ * @property integer $consent_signed
  *
  * The followings are the available model relations:
  *
@@ -64,9 +65,9 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, ', 'safe'),
-			array('surgical_examination, anesthesia_assessment, biometry, patient_rights, ', 'required'),
-			array('id, event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, ', 'safe', 'on' => 'search'),
+			array('event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'safe'),
+			array('surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'required'),
+			array('id, event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -92,10 +93,11 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'surgical_examination' => 'Surgical Examination',
-			'anesthesia_assessment' => 'Anesthesia Pre op Assessment',
+			'surgical_examination' => 'Surgical examination',
+			'anesthesia_assessment' => 'Anesthesia pre-op assessment',
 			'biometry' => 'Biometry',
-			'patient_rights' => 'Patient Rights',
+			'patient_rights' => 'Patient rights',
+			'consent_signed' => 'Consent signed',
 		);
 	}
 
@@ -117,14 +119,6 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
 	}
 }
 ?>

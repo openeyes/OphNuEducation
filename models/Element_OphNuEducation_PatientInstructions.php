@@ -65,7 +65,7 @@ class Element_OphNuEducation_PatientInstructions  extends  BaseEventTypeElement
 	{
 		return array(
 			array('event_id, adult_instructions, young_children, laser_injection_patients, comments, ', 'safe'),
-			array('adult_instructions, young_children, laser_injection_patients, comments, ', 'required'),
+			array('adult_instructions, young_children, laser_injection_patients', 'required'),
 			array('id, event_id, adult_instructions, young_children, laser_injection_patients, comments, ', 'safe', 'on' => 'search'),
 		);
 	}

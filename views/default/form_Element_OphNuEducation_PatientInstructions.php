@@ -27,11 +27,31 @@
 		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
 	</header>
 
-		<div class="element-fields">
-			<?php echo $form->checkBox($element, 'adult_instructions')?>
-	<?php echo $form->radioBoolean($element, 'young_children')?>
-	<?php echo $form->radioBoolean($element, 'laser_injection_patients')?>
-	<?php echo $form->textArea($element, 'comments', array('rows' => 6, 'cols' => 80))?>
+	<div class="element-fields">
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_adult_instructions"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'adult_instructions', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_young_children"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'young_children', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_laser_injection_patients"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'laser_injection_patients', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<?php echo $form->textArea($element, 'comments', array(), false, array(), array('label' => 3, 'field' => 5))?>
 	</div>
-	
 </section>

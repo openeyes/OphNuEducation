@@ -27,11 +27,46 @@
 		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
 	</header>
 
-		<div class="element-fields">
-			<?php echo $form->checkBox($element, 'surgical_examination')?>
-	<?php echo $form->checkBox($element, 'anesthesia_assessment')?>
-	<?php echo $form->checkBox($element, 'biometry')?>
-	<?php echo $form->checkBox($element, 'patient_rights')?>
+	<div class="element-fields">
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_consent_signed"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'consent_signed', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_surgical_examination"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'surgical_examination', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_anesthesia_assessment"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'anesthesia_assessment', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_biometry"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'biometry', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_patient_rights"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'patient_rights', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
 	</div>
-	
 </section>

@@ -23,7 +23,7 @@
  * The followings are the available columns in table:
  * @property string $id
  * @property integer $event_id
- * @property integer $patient_identifed
+ * @property integer $patient_identified
  * @property integer $dob
  * @property integer $patient_name
  * @property integer $parent_caregiver
@@ -64,9 +64,9 @@ class Element_OphNuEducation_PatientId  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, patient_identifed, dob, patient_name, parent_caregiver, ', 'safe'),
-			array('patient_identifed, dob, patient_name, parent_caregiver, ', 'required'),
-			array('id, event_id, patient_identifed, dob, patient_name, parent_caregiver, ', 'safe', 'on' => 'search'),
+			array('event_id, patient_identified, dob, patient_name, parent_caregiver, ', 'safe'),
+			array('patient_identified, dob, patient_name, parent_caregiver, ', 'required'),
+			array('id, event_id, patient_identified, dob, patient_name, parent_caregiver, ', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -92,10 +92,10 @@ class Element_OphNuEducation_PatientId  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'patient_identifed' => 'Wrist band verified with two identifiers',
+			'patient_identified' => 'Wrist band verified with two identifiers',
 			'dob' => 'DOB',
-			'patient_name' => 'Patient Name',
-			'parent_caregiver' => 'Parent Caregiver',
+			'patient_name' => 'Patient name',
+			'parent_caregiver' => 'Parent caregiver',
 		);
 	}
 
@@ -109,7 +109,7 @@ class Element_OphNuEducation_PatientId  extends  BaseEventTypeElement
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('patient_identifed', $this->patient_identifed);
+		$criteria->compare('patient_identified', $this->patient_identified);
 		$criteria->compare('dob', $this->dob);
 		$criteria->compare('patient_name', $this->patient_name);
 		$criteria->compare('parent_caregiver', $this->parent_caregiver);

@@ -28,7 +28,6 @@
  * @property integer $relationship_1_id
  * @property string $relationship_2_name
  * @property integer $relationship_2_id
- * @property integer $consent_signed
  *
  * The followings are the available model relations:
  *
@@ -42,7 +41,7 @@
  * @property OphNuEducation_CareGivers_Relationship2 $relationship_2
  */
 
-class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
+class Element_OphNuEducation_CareGivers  extends	BaseEventTypeElement
 {
 	public $service;
 
@@ -69,9 +68,9 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'safe'),
-			array('caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'required'),
-			array('id, event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id, consent_signed, ', 'safe', 'on' => 'search'),
+			array('event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id', 'safe'),
+			array('caregivers_present_id', 'required'),
+			array('id, event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -100,12 +99,11 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'caregivers_present_id' => 'Caregivers Present',
+			'caregivers_present_id' => 'Caregivers present',
 			'relationship_1_name' => 'Name',
 			'relationship_1_id' => 'Relationship',
 			'relationship_2_name' => 'Name',
 			'relationship_2_id' => 'Relationship',
-			'consent_signed' => 'Consent Signed',
 		);
 	}
 
@@ -124,19 +122,30 @@ class Element_OphNuEducation_CareGivers  extends  BaseEventTypeElement
 		$criteria->compare('relationship_1_id', $this->relationship_1_id);
 		$criteria->compare('relationship_2_name', $this->relationship_2_name);
 		$criteria->compare('relationship_2_id', $this->relationship_2_id);
-		$criteria->compare('consent_signed', $this->consent_signed);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
 	}
 
-
-
-	protected function afterSave()
+	protected function beforeValidate()
 	{
-
-		return parent::afterSave();
+		if ($this->caregivers_present && $this->caregivers_present->name == 'Yes') {
+			if (empty($this->relationship_1_name)) {
+				$this->addError('relationship_1_name',$this->getAttributeLabel('relationship_1_name').' cannot be blank');
+			}
+			if (empty($this->relationship_1_id)) {
+				$this->addError('relationship_1_id',$this->getAttributeLabel('relationship_1_id').' cannot be blank');
+			}
+			if (empty($this->relationship_2_name)) {
+				$this->addError('relationship_2_name',$this->getAttributeLabel('relationship_2_name').' cannot be blank');
+			}
+			if (empty($this->relationship_2_id)) {
+				$this->addError('relationship_2_id',$this->getAttributeLabel('relationship_2_id').' cannot be blank');
+			}
+		}
+		
+		return parent::beforeValidate();
 	}
 }
 ?>

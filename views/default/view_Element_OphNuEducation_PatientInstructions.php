@@ -25,20 +25,20 @@
 
 		<div class="element-data">
 				<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('adult_instructions'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->adult_instructions ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('adult_instructions'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->adult_instructions ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('young_children'))?>:</div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->young_children ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('young_children'))?>:</div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->young_children ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('laser_injection_patients'))?>:</div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->laser_injection_patients ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('laser_injection_patients'))?>:</div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->laser_injection_patients ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo CHtml::encode($element->comments)?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->comments)?></div></div>
 		</div>
 			</div>
 </section>

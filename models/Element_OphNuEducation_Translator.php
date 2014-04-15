@@ -64,7 +64,7 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 	{
 		return array(
 			array('event_id, translator_present_id, name_of_translator, ', 'safe'),
-			array('translator_present_id, name_of_translator, ', 'required'),
+			array('translator_present_id', 'required'),
 			array('id, event_id, translator_present_id, name_of_translator, ', 'safe', 'on' => 'search'),
 		);
 	}
@@ -92,8 +92,8 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'translator_present_id' => 'Translator Present',
-			'name_of_translator' => 'Name of Translator',
+			'translator_present_id' => 'Translator present',
+			'name_of_translator' => 'Name of translator',
 		);
 	}
 
@@ -115,12 +115,15 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 		));
 	}
 
-
-
-	protected function afterSave()
+	protected function beforeValidate()
 	{
+		if ($this->translator_present && $this->translator_present->name == 'Yes') {
+			if (empty($this->name_of_translator)) {
+				$this->addError('name_of_translator',$this->getAttributeLabel('name_of_translator').' cannot be blank');
+			}
+		}
 
-		return parent::afterSave();
+		return parent::beforeValidate();
 	}
 }
 ?>

@@ -25,20 +25,20 @@
 
 		<div class="element-data">
 				<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_identifed'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->patient_identifed ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_identified'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_identified ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('dob'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->dob ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('dob'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->dob ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_name'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->patient_name ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_name'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_name ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-2 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('parent_caregiver'))?></div></div>
-			<div class="large-10 column end"><div class="data-value"><?php echo $element->parent_caregiver ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('parent_caregiver'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->parent_caregiver ? 'Yes' : 'No'?></div></div>
 		</div>
 			</div>
 </section>
