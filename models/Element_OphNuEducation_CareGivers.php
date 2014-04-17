@@ -99,7 +99,7 @@ class Element_OphNuEducation_CareGivers  extends	BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'caregivers_present_id' => 'Caregivers present',
+			'caregivers_present_id' => 'Care givers present',
 			'relationship_1_name' => 'Name',
 			'relationship_1_id' => 'Relationship',
 			'relationship_2_name' => 'Name',
