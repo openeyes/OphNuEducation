@@ -38,31 +38,6 @@ $(document).ready(function() {
 			}
 		}
 	});
-
-	$('input[name="Element_OphNuEducation_Translator[translator_present_id]"]').click(function() {
-		if ($(this).val() == '1') {
-			$('#div_Element_OphNuEducation_Translator_name_of_translator').show();
-			$('#Element_OphNuEducation_Translator_name_of_translator').focus();
-		} else {
-			$('#div_Element_OphNuEducation_Translator_name_of_translator').hide();
-			$('#Element_OphNuEducation_Translator_name_of_translator').val('');
-		}
-	});
-
-	$('input[name="Element_OphNuEducation_CareGivers[caregivers_present_id]"]').click(function() {
-		if ($(this).val() == '1') {
-			$('#div_Element_OphNuEducation_CareGivers_relationship_1_name').show();
-			$('#div_Element_OphNuEducation_CareGivers_relationship_2_name').show();
-			$('#Element_OphNuEducation_CareGivers_relationship_1_name').focus();
-		} else {
-			$('#div_Element_OphNuEducation_CareGivers_relationship_1_name').hide();
-			$('#div_Element_OphNuEducation_CareGivers_relationship_2_name').hide();
-			$('#Element_OphNuEducation_CareGivers_relationship_1_name').val('');
-			$('#Element_OphNuEducation_CareGivers_relationship_2_name').val('');
-			$('#Element_OphNuEducation_CareGivers_relationship_1_id').val('');
-			$('#Element_OphNuEducation_CareGivers_relationship_2_id').val('');
-		}
-	});
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }

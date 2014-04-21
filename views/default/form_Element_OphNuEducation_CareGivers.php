@@ -28,7 +28,7 @@
 	</header>
 
 	<div class="element-fields">
-		<?php echo $form->radioButtons($element, 'caregivers_present_id', 'ophnueducation_caregivers_caregivers_present', null, false, false, false, false, array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioButtons($element, 'caregivers_present_id', CHtml::listData(OphNuEducation_CareGivers_CaregiversPresent::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array('class' => 'linked-fields', 'data-linked-fields' => 'relationship_1_name,relationship_1_id,relationship_2_name,relationship_2_id','data-linked-value' => 'Yes'), array('label' => 3, 'field' => 4))?>
 		<div id="div_Element_OphNuEducation_CareGivers_relationship_1_name" class="row field-row"<?php if ($element->caregivers_present_id != 1) {?> style="display: none"<?php }?>>
 			<div class="large-3 column">
 				<label for="Element_OphNuEducation_CareGivers_relationship_1_name"><?php echo $element->getAttributeLabel('relationship_1_name')?>:</label>
