@@ -23,22 +23,23 @@
 		<h3 class="element-title"><?php echo $element->elementType->name?></h3>
 	</header>
 
-		<div class="element-data">
-				<div class="row data-row">
+	<div class="element-data">
+		<div class="row data-row">
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_identified'))?></div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_identified ? 'Yes' : 'No'?></div></div>
 		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('dob'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->dob ? 'Yes' : 'No'?></div></div>
-		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_name'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_name ? 'Yes' : 'No'?></div></div>
-		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('parent_caregiver'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->parent_caregiver ? 'Yes' : 'No'?></div></div>
-		</div>
+		<?php if ($element->patient_identified) {?>
+			<div class="row data-row">
+				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('identifiers'))?>:</div></div>
+				<div class="large-9 column end"><div class="data-value"><?php if (!$element->identifiers) {?>
+								None
+							<?php } else {?>
+									<?php foreach ($element->identifiers as $item) {
+										echo $item->identifier->name?><br/>
+									<?php }?>
+							<?php }?>
+				</div></div>
 			</div>
+		<?php }?>
+	</div>
 </section>

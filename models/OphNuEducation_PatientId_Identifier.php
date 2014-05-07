@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * OpenEyes
  *
  * (C) Moorfields Eye Hospital NHS Foundation Trust, 2008-2011
@@ -18,15 +17,11 @@
  */
 
 /**
- * This is the model class for table "et_ophnueducation_patientid".
+ * This is the model class for table "ophnueducation_patientid_identifier".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property integer $event_id
- * @property integer $patient_identified
- * @property integer $dob
- * @property integer $patient_name
- * @property integer $parent_caregiver
+ * @property string $name
  *
  * The followings are the available model relations:
  *
@@ -37,10 +32,8 @@
  * @property User $usermodified
  */
 
-class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
+class OphNuEducation_PatientId_Identifier extends BaseActiveRecord
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -55,7 +48,7 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 	 */
 	public function tableName()
 	{
-		return 'et_ophnueducation_patientid';
+		return 'ophnueducation_patientid_identifier';
 	}
 
 	/**
@@ -64,9 +57,9 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, patient_identified', 'safe'),
-			array('patient_identified', 'required'),
-			array('id, event_id, patient_identified', 'safe', 'on' => 'search'),
+			array('name', 'safe'),
+			array('name', 'required'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -81,7 +74,6 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'identifiers' => array(self::HAS_MANY, 'OphNuEducation_PatientId_Identifier_Assignment', 'element_id'),
 		);
 	}
 
@@ -92,9 +84,7 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 	{
 		return array(
 			'id' => 'ID',
-			'event_id' => 'Event',
-			'patient_identified' => 'Wrist band verified with two identifiers',
-			'identifiers' => 'Two identifiers',
+			'name' => 'Name',
 		);
 	}
 
@@ -107,23 +97,11 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('patient_identified', $this->patient_identified);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-	public function beforeValidate()
-	{
-		if ($this->patient_identified) {
-			if (count($this->identifiers) != 2) {
-				$this->addError('identifiers','Please select exactly 2 identifiers');
-			}
-		}
-
-		return parent::beforeValidate();
 	}
 }
 ?>

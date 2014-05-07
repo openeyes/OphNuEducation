@@ -28,29 +28,7 @@
 	</header>
 
 	<div class="element-fields">
-		<div class="row field-row">
-			<div class="large-3 column"><label></label></div>
-			<div class="large-4 column end">
-				<?php echo $form->checkBox($element, 'patient_identified', array('nowrapper' => true))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column"><label></label></div>
-			<div class="large-4 column end">
-				<?php echo $form->checkBox($element, 'dob', array('nowrapper' => true))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column"><label></label></div>
-			<div class="large-4 column end">
-				<?php echo $form->checkBox($element, 'patient_name', array('nowrapper' => true))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column"><label></label></div>
-			<div class="large-4 column end">
-				<?php echo $form->checkBox($element, 'parent_caregiver', array('nowrapper' => true))?>
-			</div>
-		</div>
+		<?php echo $form->checkBox($element, 'patient_identified', array('text-align' => 'right', 'class' => 'linked-fields', 'data-linked-fields' => 'MultiSelect_identifiers', 'data-linked-values' => '1'), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->multiSelectList($element, 'MultiSelect_identifiers', 'identifiers', 'identifier_id', CHtml::listData(OphNuEducation_PatientId_Identifier::model()->findAll(array('order'=>'display_order asc')),'id','name'), array(), array('empty' => '- Please select -', 'label' => 'Two identifiers'), !$element->patient_identified, false, null, false, false, array('label' => 3, 'field' => 4))?>
 	</div>
 </section>
