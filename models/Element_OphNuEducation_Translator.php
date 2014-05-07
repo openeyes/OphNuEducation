@@ -64,7 +64,6 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 	{
 		return array(
 			array('event_id, translator_present_id, name_of_translator, ', 'safe'),
-			array('translator_present_id', 'required'),
 			array('id, event_id, translator_present_id, name_of_translator, ', 'safe', 'on' => 'search'),
 		);
 	}

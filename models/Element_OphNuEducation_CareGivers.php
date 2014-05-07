@@ -69,7 +69,6 @@ class Element_OphNuEducation_CareGivers  extends	BaseEventTypeElement
 	{
 		return array(
 			array('event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id', 'safe'),
-			array('caregivers_present_id', 'required'),
 			array('id, event_id, caregivers_present_id, relationship_1_name, relationship_1_id, relationship_2_name, relationship_2_id', 'safe', 'on' => 'search'),
 		);
 	}
