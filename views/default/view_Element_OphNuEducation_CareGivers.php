@@ -37,14 +37,17 @@
 				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_1_id'))?></div></div>
 				<div class="large-9 column end"><div class="data-value"><?php echo $element->relationship_1 ? $element->relationship_1->name : 'None'?></div></div>
 			</div>
-			<div class="row data-row">
-				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_name'))?></div></div>
-				<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->relationship_2_name)?></div></div>
-			</div>
-			<div class="row data-row">
-				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_id'))?></div></div>
-				<div class="large-9 column end"><div class="data-value"><?php echo $element->relationship_2 ? $element->relationship_2->name : 'None'?></div></div>
-			</div>
+			<?php !empty($element->relationship_2_name)?>
+			<?php if(!empty($element->relationship_2)) {?>
+				<div class="row data-row">
+					<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_name'))?></div></div>
+					<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->relationship_2_name)?></div></div>
+				</div>
+				<div class="row data-row">
+					<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('relationship_2_id'))?></div></div>
+					<div class="large-9 column end"><div class="data-value"><?php echo $element->relationship_2 ? $element->relationship_2->name : 'None'?></div></div>
+				</div>
+			<?php }?>
 		<?php }?>
 	</div>
 </section>
