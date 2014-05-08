@@ -136,12 +136,6 @@ class Element_OphNuEducation_CareGivers  extends	BaseEventTypeElement
 			if (empty($this->relationship_1_id)) {
 				$this->addError('relationship_1_id',$this->getAttributeLabel('relationship_1_id').' cannot be blank');
 			}
-			if (empty($this->relationship_2_name)) {
-				$this->addError('relationship_2_name',$this->getAttributeLabel('relationship_2_name').' cannot be blank');
-			}
-			if (empty($this->relationship_2_id)) {
-				$this->addError('relationship_2_id',$this->getAttributeLabel('relationship_2_id').' cannot be blank');
-			}
 		}
 		
 		return parent::beforeValidate();
