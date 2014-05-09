@@ -42,7 +42,7 @@
 			</div>
 		<?php }?>
 		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('translator_present_id'))?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('translator_present_id'))?>?</div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo is_null($element->translator_present) ? 'Not recorded' : ($element->translator_present ? $element->translator_present->name : 'None')?></div></div>
 		</div>
 		<?php if ($element->translator_present && $element->translator_present->name == 'Yes') {?>
@@ -52,7 +52,7 @@
 			</div>
 		<?php }?>
 		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('caregivers_present_id'))?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('caregivers_present_id'))?>?</div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo is_null($element->caregivers_present) ? 'Not recorded' : ($element->caregivers_present ? $element->caregivers_present->name : 'None')?></div></div>
 		</div>
 		<?php if ($element->caregivers_present && $element->caregivers_present->name == 'Yes') {?>
