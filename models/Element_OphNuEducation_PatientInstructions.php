@@ -92,9 +92,9 @@ class Element_OphNuEducation_PatientInstructions  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'adult_instructions' => 'Adult Instructions',
-			'young_children' => 'Young Children',
-			'laser_injection_patients' => 'Laser Injection Patients',
+			'adult_instructions' => 'Adult instructions',
+			'young_children' => 'Paediatric instructions',
+			'laser_injection_patients' => 'Laser Injection patients',
 			'comments' => 'Comments',
 		);
 	}

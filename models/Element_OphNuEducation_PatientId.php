@@ -94,7 +94,7 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'patient_identified' => 'Wrist band verified with two identifiers',
+			'patient_identified' => 'Patient ID / wristband verified with two identifiers',
 			'identifiers' => 'Two identifiers',
 			'translator_present_id' => 'Translator present',
 			'translator_name' => 'Name of translator',
