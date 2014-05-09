@@ -17,7 +17,7 @@
  */
 
 /**
- * This is the model class for table "ophnueducation_caregivers_relationship_1".
+ * This is the model class for table "ophnueducation_patientid_caregivers_present".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class OphNuEducation_CareGivers_Relationship1 extends BaseActiveRecord
+class OphNuEducation_PatientId_CaregiversPresent extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -48,7 +48,7 @@ class OphNuEducation_CareGivers_Relationship1 extends BaseActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'ophnueducation_caregivers_relationship_1';
+		return 'ophnueducation_patientid_caregivers_present';
 	}
 
 	/**

@@ -39,8 +39,6 @@
 
 class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -64,8 +62,7 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, patient_identified', 'safe'),
-			array('patient_identified', 'required'),
+			array('event_id, patient_identified, translator_present_id, translator_name, caregivers_present_id, caregiver_name1, caregiver_relationship1_id, caregiver_name2, caregiver_relationship2_id', 'safe'),
 			array('id, event_id, patient_identified', 'safe', 'on' => 'search'),
 		);
 	}
@@ -82,6 +79,10 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
 			'identifiers' => array(self::HAS_MANY, 'OphNuEducation_PatientId_Identifier_Assignment', 'element_id'),
+			'translator_present' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_TranslatorPresent', 'translator_present_id'),
+			'caregivers_present' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_CaregiversPresent', 'caregivers_present_id'),
+			'relationship_1' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_Relationship', 'caregiver_relationship1_id'),
+			'relationship_2' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_Relationship', 'caregiver_relationship2_id'),
 		);
 	}
 
@@ -95,6 +96,13 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 			'event_id' => 'Event',
 			'patient_identified' => 'Wrist band verified with two identifiers',
 			'identifiers' => 'Two identifiers',
+			'translator_present_id' => 'Translator present',
+			'translator_name' => 'Name of translator',
+			'caregivers_present_id' => 'Care givers present',
+			'caregiver_name1' => 'Name',
+			'caregiver_relationship1_id' => 'Relationship',
+			'caregiver_name2' => 'Name',
+			'caregiver_relationship2_id' => 'Relationship',
 		);
 	}
 
@@ -120,6 +128,27 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 		if ($this->patient_identified) {
 			if (count($this->identifiers) != 2) {
 				$this->addError('identifiers','Please select exactly 2 identifiers');
+			}
+		}
+
+		if ($this->translator_present && $this->translator_present->name == 'Yes') {
+			if (empty($this->translator_name)) {
+				$this->addError('translator_name',$this->getAttributeLabel('translator_name').' cannot be blank');
+			}
+		}
+
+		if ($this->caregivers_present && $this->caregivers_present->name == 'Yes') {
+			if (empty($this->caregiver_name1)) {
+				$this->addError('caregiver_name1',$this->getAttributeLabel('caregiver_name1').' cannot be blank');
+			}
+			if (empty($this->caregiver_relationship1_id)) {
+				$this->addError('caregiver_relationship1_id',$this->getAttributeLabel('caregiver_relationship1_id').' cannot be blank');
+			}
+			if (empty($this->caregiver_name2)) {
+				$this->addError('caregiver_name2',$this->getAttributeLabel('caregiver_name2').' cannot be blank');
+			}
+			if (empty($this->caregiver_relationship2_id)) {
+				$this->addError('caregiver_relationship2_id',$this->getAttributeLabel('caregiver_relationship2_id').' cannot be blank');
 			}
 		}
 

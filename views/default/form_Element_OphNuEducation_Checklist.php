@@ -52,20 +52,21 @@
 				<?php echo $form->checkBox($element, 'anesthesia_assessment', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
 			</div>
 		</div>
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_biometry"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'biometry', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
+		<?php echo $form->radioButtons($element, 'biometry_id', CHtml::listData(OphNuEducation_Checklist_Biometry::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array(), array('label' => 3, 'field' => 4))?>
 		<div class="row field-row">
 			<div class="large-3 column">
 				<label for="Element_OphNuEducation_Checklist_patient_rights"></label>
 			</div>
 			<div class="large-9 column">
 				<?php echo $form->checkBox($element, 'patient_rights', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+			</div>
+		</div>
+		<div class="row field-row">
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_Checklist_instructions_provided"></label>
+			</div>
+			<div class="large-9 column">
+				<?php echo $form->checkBox($element, 'instructions_provided', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
 			</div>
 		</div>
 	</div>

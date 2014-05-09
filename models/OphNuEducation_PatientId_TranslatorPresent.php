@@ -17,7 +17,7 @@
  */
 
 /**
- * This is the model class for table "ophnueducation_translator_translator_present".
+ * This is the model class for table "ophnueducation_patientid_translator_present".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class OphNuEducation_Translator_TranslatorPresent extends BaseActiveRecord
+class OphNuEducation_PatientId_TranslatorPresent extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -48,7 +48,7 @@ class OphNuEducation_Translator_TranslatorPresent extends BaseActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'ophnueducation_translator_translator_present';
+		return 'ophnueducation_patientid_translator_present';
 	}
 
 	/**

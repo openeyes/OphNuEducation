@@ -30,5 +30,44 @@
 	<div class="element-fields">
 		<?php echo $form->checkBox($element, 'patient_identified', array('text-align' => 'right', 'class' => 'linked-fields', 'data-linked-fields' => 'MultiSelect_identifiers', 'data-linked-values' => '1'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->multiSelectList($element, 'MultiSelect_identifiers', 'identifiers', 'identifier_id', CHtml::listData(OphNuEducation_PatientId_Identifier::model()->findAll(array('order'=>'display_order asc')),'id','name'), array(), array('empty' => '- Please select -', 'label' => 'Two identifiers'), !$element->patient_identified, false, null, false, false, array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioButtons($element, 'translator_present_id', CHtml::listData(OphNuEducation_PatientId_TranslatorPresent::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array('class' => 'linked-fields', 'data-linked-fields' => 'translator_name', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->textField($element, 'translator_name', array('hide' => !$element->translator_present || $element->translator_present->name != 'Yes'), array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioButtons($element, 'caregivers_present_id', CHtml::listData(OphNuEducation_PatientId_CaregiversPresent::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array('class' => 'linked-fields', 'data-linked-fields' => 'caregiver_name1,caregiver_relationship1_id,caregiver_name2,caregiver_relationship2_id','data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
+		<div id="div_Element_OphNuEducation_PatientId_caregiver_name1" class="row field-row"<?php if ($element->caregivers_present_id != 1) {?> style="display: none"<?php }?>>
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_PatientId_caregiver_name1"><?php echo $element->getAttributeLabel('caregiver_name1')?>:</label>
+			</div>
+			<div class="large-9 column end">
+				<div class="row field-row">
+					<div class="large-4 column">
+						<?php echo $form->textField($element, 'caregiver_name1', array('nowrapper' => true), array(), array('label' => 3, 'field' => 4))?>
+					</div>
+					<div class="large-3 column">
+						<label for="Element_OphNuEducation_PatientId_caregiver_relationship1_id"><?php echo $element->getAttributeLabel('caregiver_relationship1_id')?>:</label>
+					</div>
+					<div class="large-3 column end">
+						<?php echo $form->dropDownList($element, 'caregiver_relationship1_id', CHtml::listData(OphNuEducation_PatientId_Relationship::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('nowrapper' => true, 'empty'=>'- Please select -'))?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="div_Element_OphNuEducation_PatientId_caregiver_name2" class="row field-row"<?php if ($element->caregivers_present_id != 1) {?> style="display: none"<?php }?>>
+			<div class="large-3 column">
+				<label for="Element_OphNuEducation_PatientId_caregiver_name2"><?php echo $element->getAttributeLabel('caregiver_name2')?>:</label>
+			</div>
+			<div class="large-9 column end">
+				<div class="row field-row">
+					<div class="large-4 column">
+						<?php echo $form->textField($element, 'caregiver_name2', array('nowrapper' => true), array(), array('label' => 3, 'field' => 4))?>
+					</div>
+					<div class="large-3 column">
+						<label for="Element_OphNuEducation_PatientId_caregiver_relationship2_id"><?php echo $element->getAttributeLabel('caregiver_relationship2_id')?>:</label>
+					</div>
+					<div class="large-3 column end">
+						<?php echo $form->dropDownList($element, 'caregiver_relationship2_id', CHtml::listData(OphNuEducation_PatientId_Relationship::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('nowrapper' => true, 'empty'=>'- Please select -'))?>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>

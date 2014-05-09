@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * OpenEyes
  *
  * (C) Moorfields Eye Hospital NHS Foundation Trust, 2008-2011
@@ -18,13 +17,11 @@
  */
 
 /**
- * This is the model class for table "et_ophnueducation_translator".
+ * This is the model class for table "ophnueducation_patientid_relationship".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property integer $event_id
- * @property integer $translator_present_id
- * @property string $name_of_translator
+ * @property string $name
  *
  * The followings are the available model relations:
  *
@@ -33,13 +30,10 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property OphNuEducation_Translator_TranslatorPresent $translator_present
  */
 
-class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
+class OphNuEducation_PatientId_Relationship extends BaseActiveRecord
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -54,7 +48,7 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 	 */
 	public function tableName()
 	{
-		return 'et_ophnueducation_translator';
+		return 'ophnueducation_patientid_relationship';
 	}
 
 	/**
@@ -63,8 +57,9 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, translator_present_id, name_of_translator, ', 'safe'),
-			array('id, event_id, translator_present_id, name_of_translator, ', 'safe', 'on' => 'search'),
+			array('name', 'safe'),
+			array('name', 'required'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -79,7 +74,6 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'translator_present' => array(self::BELONGS_TO, 'OphNuEducation_Translator_TranslatorPresent', 'translator_present_id'),
 		);
 	}
 
@@ -90,9 +84,7 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 	{
 		return array(
 			'id' => 'ID',
-			'event_id' => 'Event',
-			'translator_present_id' => 'Translator present',
-			'name_of_translator' => 'Name of translator',
+			'name' => 'Name',
 		);
 	}
 
@@ -105,24 +97,11 @@ class Element_OphNuEducation_Translator  extends  BaseEventTypeElement
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('translator_present_id', $this->translator_present_id);
-		$criteria->compare('name_of_translator', $this->name_of_translator);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-	protected function beforeValidate()
-	{
-		if ($this->translator_present && $this->translator_present->name == 'Yes') {
-			if (empty($this->name_of_translator)) {
-				$this->addError('name_of_translator',$this->getAttributeLabel('name_of_translator').' cannot be blank');
-			}
-		}
-
-		return parent::beforeValidate();
 	}
 }
 ?>

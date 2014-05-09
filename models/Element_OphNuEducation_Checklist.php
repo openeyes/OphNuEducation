@@ -65,8 +65,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'safe'),
-			array('surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'required'),
+			array('event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed, biometry_id, instructions_provided', 'safe'),
 			array('id, event_id, surgical_examination, anesthesia_assessment, biometry, patient_rights, consent_signed', 'safe', 'on' => 'search'),
 		);
 	}
@@ -82,6 +81,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
+			'biometry' => array(self::BELONGS_TO, 'OphNuEducation_Checklist_Biometry', 'biometry_id'),
 		);
 	}
 
@@ -98,6 +98,8 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 			'biometry' => 'Biometry',
 			'patient_rights' => 'Patient rights',
 			'consent_signed' => 'Consent signed',
+			'biometry_id' => 'Biometry',
+			'instructions_provided' => 'Patient Instructions provided to patient',
 		);
 	}
 
