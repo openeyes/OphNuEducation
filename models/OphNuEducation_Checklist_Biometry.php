@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class OphNuEducation_Checklist_Biometry extends BaseActiveRecord
+class OphNuEducation_Checklist_Biometry extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.

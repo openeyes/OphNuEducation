@@ -17,16 +17,6 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-
-<section class="element <?php echo $element->elementType->class_name?>"
-	data-element-type-id="<?php echo $element->elementType->id?>"
-	data-element-type-class="<?php echo $element->elementType->class_name?>"
-	data-element-type-name="<?php echo $element->elementType->name?>"
-	data-element-display-order="<?php echo $element->elementType->display_order?>">
-	<header class="element-header">
-		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
-	</header>
-
 	<div class="element-fields">
 		<?php echo $form->checkBox($element, 'patient_identified', array('text-align' => 'right', 'class' => 'linked-fields', 'data-linked-fields' => 'MultiSelect_identifiers', 'data-linked-values' => '1'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->multiSelectList($element, 'MultiSelect_identifiers', 'identifiers', 'identifier_id', CHtml::listData(OphNuEducation_PatientId_Identifier::model()->findAll(array('order'=>'display_order asc')),'id','name'), array(), array('empty' => '- Please select -', 'label' => 'Two identifiers'), !$element->patient_identified, false, null, false, false, array('label' => 3, 'field' => 4))?>
@@ -70,4 +60,3 @@
 			</div>
 		</div>
 	</div>
-</section>
