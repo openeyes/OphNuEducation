@@ -98,7 +98,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 			'biometry' => 'Biometry completed',
 			'patient_rights' => 'Patient Rights & Responsibilities form provided to patient',
 			'consent_signed' => 'Consent signed',
-			'biometry_id' => 'Biometry',
+			'biometry_id' => 'Biometry completed',
 			'instructions_provided' => 'Patient Instructions provided to patient',
 		);
 	}
