@@ -80,8 +80,6 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'identifiers' => array(self::HAS_MANY, 'OphNuEducation_PatientId_Identifier', 'identifier_id', 'through' => 'identifier_assignment'),
-			'identifier_assignment' => array(self::HAS_MANY, 'OphNuEducation_PatientId_Identifier_Assignment', 'element_id'),
 			'translator_present' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_TranslatorPresent', 'translator_present_id'),
 			'caregivers_present' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_CaregiversPresent', 'caregivers_present_id'),
 			'relationship_1' => array(self::BELONGS_TO, 'OphNuEducation_PatientId_Relationship', 'caregiver_relationship1_id'),
@@ -97,8 +95,7 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'patient_identified' => 'Patient ID / wristband verified with two identifiers',
-			'identifiers' => 'Two identifiers',
+			'patient_identified' => 'Patient ID verified and ID band applied',
 			'translator_present_id' => 'Translator present',
 			'translator_name' => 'Name of translator',
 			'caregivers_present_id' => 'Care givers present',
@@ -128,12 +125,6 @@ class Element_OphNuEducation_PatientId	extends  BaseEventTypeElement
 
 	public function beforeValidate()
 	{
-		if ($this->patient_identified) {
-			if (count($this->identifiers) != 2) {
-				$this->addError('identifiers','Please select exactly 2 identifiers');
-			}
-		}
-
 		if ($this->translator_present && $this->translator_present->name == 'Yes') {
 			if (empty($this->translator_name)) {
 				$this->addError('translator_name',$this->getAttributeLabel('translator_name').' cannot be blank');

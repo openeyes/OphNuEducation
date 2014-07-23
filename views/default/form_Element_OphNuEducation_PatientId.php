@@ -18,8 +18,7 @@
  */
 ?>
 	<div class="element-fields">
-		<?php echo $form->checkBox($element, 'patient_identified', array('text-align' => 'right', 'class' => 'linked-fields', 'data-linked-fields' => 'identifiers', 'data-linked-values' => '1'), array('label' => 3, 'field' => 4))?>
-		<?php echo $form->multiSelectList($element, 'identifiers', 'identifiers', 'identifier_id', CHtml::listData(OphNuEducation_PatientId_Identifier::model()->findAll(array('order'=>'display_order asc')),'id','name'), array(), array('empty' => '- Please select -', 'label' => 'Two identifiers'), !$element->patient_identified, false, null, false, false, array('label' => 3, 'field' => 4))?>
+		<?php echo $form->checkBox($element, 'patient_identified', array('text-align' => 'right'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->radioButtons($element, 'translator_present_id', CHtml::listData(OphNuEducation_PatientId_TranslatorPresent::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array('class' => 'linked-fields', 'data-linked-fields' => 'translator_name', 'data-linked-values' => 'Yes', 'label-character' => '?'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->textField($element, 'translator_name', array('hide' => !$element->translator_present || $element->translator_present->name != 'Yes'), array(), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->radioButtons($element, 'caregivers_present_id', CHtml::listData(OphNuEducation_PatientId_CaregiversPresent::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array('class' => 'linked-fields', 'data-linked-fields' => 'caregiver_name1,caregiver_relationship1_id,caregiver_name2,caregiver_relationship2_id','data-linked-values' => 'Yes', 'label-character' => '?'), array('label' => 3, 'field' => 4))?>
