@@ -27,8 +27,8 @@
 			<div class="large-9 column end"><div class="data-value"><?php echo $element->surgical_examination ? 'Yes' : 'No'?></div></div>
 		</div>
 		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anesthesia_assessment'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->anesthesia_assessment ? 'Yes' : 'No'?></div></div>
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anesthesia_assessment_id'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo is_null($element->anesthesia_assessment) ? 'Not recorded' : $element->anesthesia_assessment->name?></div></div>
 		</div>
 		<div class="row data-row">
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('biometry'))?></div></div>

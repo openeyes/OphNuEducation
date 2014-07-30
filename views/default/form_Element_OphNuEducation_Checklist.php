@@ -18,45 +18,10 @@
  */
 ?>
 	<div class="element-fields">
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_consent_signed"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'consent_signed', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_surgical_examination"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'surgical_examination', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_anesthesia_assessment"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'anesthesia_assessment', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
+		<?php echo $form->radioBoolean($element, 'consent_signed', array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioBoolean($element, 'surgical_examination', array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioButtons($element, 'anesthesia_assessment_id', CHtml::listData(OphNuEducation_Checklist_Anaesthesia_Preop_Completed::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array(), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->radioButtons($element, 'biometry_id', CHtml::listData(OphNuEducation_Checklist_Biometry::model()->findAll(array('order'=>'display_order asc')),'id','name'), null, false, false, false, false, array(), array('label' => 3, 'field' => 4))?>
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_patient_rights"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'patient_rights', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
-		<div class="row field-row">
-			<div class="large-3 column">
-				<label for="Element_OphNuEducation_Checklist_instructions_provided"></label>
-			</div>
-			<div class="large-9 column">
-				<?php echo $form->checkBox($element, 'instructions_provided', array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
-			</div>
-		</div>
+		<?php echo $form->radioBoolean($element, 'patient_rights', array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioBoolean($element, 'instructions_provided', array(), array('label' => 3, 'field' => 4))?>
 	</div>

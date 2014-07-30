@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * OpenEyes
  *
  * (C) Moorfields Eye Hospital NHS Foundation Trust, 2008-2011
@@ -18,16 +17,11 @@
  */
 
 /**
- * This is the model class for table "et_ophnueducation_checklist".
+ * This is the model class for table "ophnueducation_checklist_ana_preop".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property integer $event_id
- * @property integer $surgical_examination
- * @property integer $anesthesia_assessment
- * @property integer $biometry
- * @property integer $patient_rights
- * @property integer $consent_signed
+ * @property string $name
  *
  * The followings are the available model relations:
  *
@@ -38,10 +32,8 @@
  * @property User $usermodified
  */
 
-class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
+class OphNuEducation_Checklist_Anaesthesia_Preop_Completed extends BaseActiveRecordVersioned
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -56,7 +48,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 	 */
 	public function tableName()
 	{
-		return 'et_ophnueducation_checklist';
+		return 'ophnueducation_checklist_ana_preop';
 	}
 
 	/**
@@ -65,8 +57,9 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, surgical_examination, anesthesia_assessment_id, biometry, patient_rights, consent_signed, biometry_id, instructions_provided', 'safe'),
-			array('id, event_id, surgical_examination, anesthesia_assessment_id, biometry, patient_rights, consent_signed', 'safe', 'on' => 'search'),
+			array('name', 'safe'),
+			array('name', 'required'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -81,8 +74,6 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'biometry' => array(self::BELONGS_TO, 'OphNuEducation_Checklist_Biometry', 'biometry_id'),
-			'anesthesia_assessment' => array(self::BELONGS_TO, 'OphNuEducation_Checklist_Anaesthesia_Preop_Completed', 'anesthesia_assessment_id'),
 		);
 	}
 
@@ -93,14 +84,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 	{
 		return array(
 			'id' => 'ID',
-			'event_id' => 'Event',
-			'surgical_examination' => 'Surgical examination completed',
-			'anesthesia_assessment_id' => 'Anesthesia pre-op assessment completed',
-			'biometry' => 'Biometry completed',
-			'patient_rights' => 'Patient Rights & Responsibilities form provided to patient',
-			'consent_signed' => 'Consent signed',
-			'biometry_id' => 'Biometry',
-			'instructions_provided' => 'Patient Instructions provided to patient',
+			'name' => 'Name',
 		);
 	}
 
@@ -113,11 +97,7 @@ class Element_OphNuEducation_Checklist  extends  BaseEventTypeElement
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('event_id', $this->event_id, true);
-		$criteria->compare('surgical_examination', $this->surgical_examination);
-		$criteria->compare('anesthesia_assessment', $this->anesthesia_assessment);
-		$criteria->compare('biometry', $this->biometry);
-		$criteria->compare('patient_rights', $this->patient_rights);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
