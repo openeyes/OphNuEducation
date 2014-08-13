@@ -20,7 +20,6 @@
 return array(
 	'params' => array(
 		'admin_menu' => array(
-			'Education patient identifiers' => '/OphNuEducation/admin/editPatientIdentifiers',
 			'Education caregiver relationships' => '/OphNuEducation/admin/editCaregiverRelationships',
 		),
 	),
