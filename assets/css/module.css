@@ -18,13 +18,13 @@
  */
 /* line 17, ../sass/components/_event.scss */
 .event {
-  border-color: #e8eb91;
+  border-color: #d79e79;
 }
 /* line 19, ../sass/components/_event.scss */
 .event .event-content {
-  background-image: url('../img/watermark.png?1407423874');
+  background-image: url('../img/watermark.png?1408350867');
 }
 /* line 22, ../sass/components/_event.scss */
 .event .event-title {
-  background-image: url('../img/medium.png?1407423800');
+  background-image: url('../img/medium.png?1408350888');
 }
